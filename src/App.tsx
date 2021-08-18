@@ -5,6 +5,8 @@ import DeviceContainer from './components/DeviceContainer'
 import Search from './components/Search'
 import { Device } from './types/Device'
 
+import 'tailwindcss/tailwind.css'
+
 function App() {
 
   const [selectedDevice, setSelectedDevice] = useState<Device>()
@@ -14,15 +16,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Container>
+    <div className="container mx-auto">
+      test
+      {/* <Container>
         <GithubCorner href="https://github.com/mpfeil/osem-device-viewer" target="_blank"/>
         <div className="my-5">
           <h3 className="text-center pb-1">Enter a device name to get an overview</h3>
         </div>
         <Search handleDeviceChange={handleDeviceChange} />
         {selectedDevice && <DeviceContainer device={selectedDevice}/>}
-      </Container>
+      </Container> */}
     </div>
   )
 }
