@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import GithubCorner from 'react-github-corner'
 import { Container } from 'reactstrap'
 import DeviceContainer from './components/DeviceContainer'
 import Search from './components/Search'
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <Container>
+        <GithubCorner href="https://github.com/mpfeil/osem-device-viewer" target="_blank"/>
         <div className="my-5">
           <h3 className="text-center pb-1">Enter a device name to get an overview</h3>
         </div>
