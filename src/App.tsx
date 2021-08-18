@@ -9,7 +9,6 @@ function App() {
   const [selectedDevice, setSelectedDevice] = useState<Device>()
 
   const handleDeviceChange = (device: Device[]) => {
-    console.log(device[0]);
     setSelectedDevice(device[0]);
   }
 

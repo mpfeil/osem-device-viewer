@@ -23,16 +23,15 @@ const Search: React.FC<Props> = ({handleDeviceChange}) => {
     fetch(`${SEARCH_URI}?name=${query}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         const options = data
-        //@ts-ignore
+          //@ts-ignore
           .map((item) => {
             return {
               name: item.name,
               id: item._id
             };
           });
-        console.log(options);
+
         setResults(options);
         setIsLoading(false);
       });

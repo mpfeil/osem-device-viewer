@@ -15,11 +15,10 @@ const DeviceContainer: React.FC<Props> = ({device}) => {
   const [sensors, setSensors] = useState<SensorType[]>()
 
   const getDeviceData = () => {
-    console.log("get device data")
     fetch(`${DEVICE_URI}/${device?.id}`)
       .then((response) => response.json())
       .then((data) => {
-        setSensors(data.sensors);
+        setSensors(data.sensors)
       })
   };
 
@@ -28,15 +27,14 @@ const DeviceContainer: React.FC<Props> = ({device}) => {
   }, [device])
 
   return (
-    <div className="weather-container mt-3">
+    <div className="device-container mt-3">
       <Row>
         {
           sensors &&
           sensors.length > 0 &&
           sensors.map((sensor, index) => {
-            console.log(sensor)
             return (
-              <Col md={3} className="my-1">
+              <Col md={3} className="my-1" key={index}>
                 <Sensor data={sensor}></Sensor>
               </Col>
             )

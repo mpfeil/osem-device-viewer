@@ -19,7 +19,7 @@ const Sensor: React.FC<Props> = ({data}) => {
             />
           </div> */}
           <small className="text-muted">
-            {data.unit}
+            {`${data.lastMeasurement ? data.lastMeasurement.value : '-'}`} {data.unit} ({data.lastMeasurement ? new Date(data.lastMeasurement.createdAt).toLocaleString('de-DE') : '-'})
           </small>
           <h5 className="card-title" style={{color: titleColor}}>{data.title}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{data.sensorType}</h6>
