@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container } from 'reactstrap'
-import BoxContainer from './components/DeviceContainer'
+import DeviceContainer from './components/DeviceContainer'
 import Search from './components/Search'
 import { Device } from './types/Device'
 
@@ -20,7 +20,7 @@ function App() {
           <h3 className="text-center pb-1">Enter a device name to get an overview</h3>
         </div>
         <Search handleDeviceChange={handleDeviceChange} />
-        <BoxContainer device={selectedDevice}/>
+        {selectedDevice && <DeviceContainer device={selectedDevice}/>}
       </Container>
     </div>
   )
