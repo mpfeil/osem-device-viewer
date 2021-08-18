@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import GithubCorner from 'react-github-corner'
-import { Container } from 'reactstrap'
 import DeviceContainer from './components/DeviceContainer'
 import Search from './components/Search'
 import { Device } from './types/Device'
@@ -16,8 +15,12 @@ function App() {
   }
 
   return (
-    <div className="container mx-auto">
-      test
+    <div className="container">
+      <GithubCorner href="https://github.com/mpfeil/osem-device-viewer" target="_blank"/>
+      <div className="my-5">
+        <h3 className="font-sans text-xl text-center pb-1 sm:pt-5">Enter a device name to get an overiew</h3>
+      </div>
+      <Search handleDeviceChange={handleDeviceChange} />
       {/* <Container>
         <GithubCorner href="https://github.com/mpfeil/osem-device-viewer" target="_blank"/>
         <div className="my-5">
