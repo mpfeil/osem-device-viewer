@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row } from 'reactstrap';
 import { Device } from '../types/Device';
 import { Sensor as SensorType } from '../types/Sensor';
 import Sensor from './Sensor';
@@ -28,7 +27,7 @@ const DeviceContainer: React.FC<Props> = ({device}) => {
 
   return (
     <div className="device-container mt-3">
-      <Row>
+      {/* <Row>
         {
           sensors &&
           sensors.length > 0 &&
@@ -40,7 +39,7 @@ const DeviceContainer: React.FC<Props> = ({device}) => {
             )
           })
         }
-      </Row>
+      </Row> */}
     </div>
   )
 }

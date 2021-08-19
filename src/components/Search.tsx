@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 //@ts-ignore
 import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
@@ -23,6 +23,7 @@ const Search: React.FC<Props> = ({handleDeviceChange}) => {
     fetch(`${SEARCH_URI}?name=${query}`)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         const options = data
           //@ts-ignore
           .map((item) => {
