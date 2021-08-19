@@ -23,8 +23,8 @@ const Typeahead: React.FC<Props> = ({id, placeholder, isLoading, minLength = 3, 
   }, [onInputChange])
 
   return(
-    <div className="relative">
-      <input className="w-full pr-7 border rounded border-gray-200 p-1.5 focus:outline-none focus:ring-4 focus:ring-purple-600 transition duration-150 ease-in-out" type="text" name="" id={id} placeholder={placeholder}
+    <div className="relative w-full">
+      <input className={`w-full ${isLoading ? 'pr-7' : ''} border rounded border-gray-200 p-1.5 focus:outline-none focus:ring-4 focus:ring-purple-600 transition duration-150 ease-in-out`} type="text" name="" id={id} placeholder={placeholder}
         onChange={onInputChange}
       />
       {
