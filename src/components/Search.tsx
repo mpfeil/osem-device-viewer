@@ -6,7 +6,7 @@ import { Device } from '../types/Device';
 import Typeahead from './Typeahead';
 
 type Props = {
-  handleDeviceChange: (device: Device[]) => void
+  handleDeviceChange: (device: Device) => void
 };
 
 const SEARCH_URI = "https://api.testing.opensensemap.org/boxes";
@@ -43,10 +43,12 @@ const Search: React.FC<Props> = ({handleDeviceChange}) => {
       <div className="w-full md:w-1/3">
         <div className="flex px-5">
           <Typeahead
-            id="device-searc-form"
+            id="device-search-form"
             placeholder="Type a device name"
             isLoading={isLoading}
             onSearch={handleSearch}
+            options={results}
+            onChange={handleDeviceChange}
           />
         </div>
         {/* <AsyncTypeahead

@@ -27,6 +27,17 @@ const DeviceContainer: React.FC<Props> = ({device}) => {
 
   return (
     <div className="device-container mt-3">
+      <div className='flex'>
+        {
+          sensors &&
+          sensors.length > 0 &&
+          sensors.map((sensor, index) => {
+            return (
+              <Sensor data={sensor}></Sensor>
+            )
+          })
+        }
+      </div>
       {/* <Row>
         {
           sensors &&

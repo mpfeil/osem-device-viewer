@@ -5,10 +5,12 @@ type Props = {
   placeholder: string;
   isLoading: boolean;
   minLength?: number;
+  options?: Array<any>;
   onSearch: (query: string) => void
+  onChange: (option: any) => void;
 }
 
-const Typeahead: React.FC<Props> = ({id, placeholder, isLoading, minLength = 3, onSearch}) =>{
+const Typeahead: React.FC<Props> = ({id, placeholder, isLoading, minLength = 3, options, onSearch, onChange}) =>{
 
   const onInputChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
     event.persist()
@@ -22,9 +24,20 @@ const Typeahead: React.FC<Props> = ({id, placeholder, isLoading, minLength = 3, 
     console.log('test');
   }, [onInputChange])
 
+  const renderSuggestions = () => {
+    if (options?.length === 0) {
+      return null;
+    }
+    return (
+      <ul className='m-0 p-0 border-t-2 list-none text-left'>
+        {options?.map(option => <li className=' pt-2 pr-2 cursor-pointer hover:bg-gray-500 hover:underline' onClick={() => onChange(option)} key={option.id}>{option.name}</li>)}
+      </ul>
+    )
+  }
+
   return(
-    <div className="relative w-full">
-      <input className={`w-full ${isLoading ? 'pr-7' : ''} border rounded border-gray-200 p-1.5 focus:outline-none focus:ring-4 focus:ring-purple-600 transition duration-150 ease-in-out`} type="text" name="" id={id} placeholder={placeholder}
+    <div className="relative w-full border rounded border-gray-200">
+      <input className={`w-full ${isLoading ? 'pr-7' : ''} box-border rounded p-1.5 focus:outline-none focus:ring-4 focus:ring-purple-600 transition duration-150 ease-in-out`} type="text" name="" id={id} placeholder={placeholder}
         onChange={onInputChange}
       />
       {
@@ -37,6 +50,7 @@ const Typeahead: React.FC<Props> = ({id, placeholder, isLoading, minLength = 3, 
           </div>
         )
       }
+      {!isLoading && renderSuggestions()}
     </div>
   )
 }

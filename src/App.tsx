@@ -10,8 +10,9 @@ function App() {
 
   const [selectedDevice, setSelectedDevice] = useState<Device>()
 
-  const handleDeviceChange = (device: Device[]) => {
-    setSelectedDevice(device[0]);
+  const handleDeviceChange = (device: Device) => {
+    console.log("handelDeviceChange", device);
+    setSelectedDevice(device);
   }
 
   return (
@@ -29,6 +30,7 @@ function App() {
         <Search handleDeviceChange={handleDeviceChange} />
         {selectedDevice && <DeviceContainer device={selectedDevice}/>}
       </Container> */}
+      {selectedDevice && <DeviceContainer device={selectedDevice}/>}
     </div>
   )
 }
